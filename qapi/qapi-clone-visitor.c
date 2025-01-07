@@ -37,7 +37,7 @@ static void qapi_clone_start_struct(Visitor *v, const char *name, void **obj,
         return;
     }
 
-    *obj = g_memdup(*obj, size);
+    *obj = g_memdup2(*obj, size);
     qcv->depth++;
 }
 
@@ -65,7 +65,7 @@ static GenericList *qapi_clone_next_list(Visitor *v, GenericList *tail,
 
     assert(qcv->depth);
     /* Unshare the tail of the list cloned by g_memdup() */
-    tail->next = g_memdup(tail->next, size);
+    tail->next = g_memdup2(tail->next, size);
     return tail->next;
 }
 
