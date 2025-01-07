@@ -35,8 +35,9 @@
 #include "qemu/osdep.h"
 #include "qemu-common.h"
 
+#if defined(__GLIBC__)
 # include <pty.h>
-#if defined CONFIG_BSD
+#elif defined CONFIG_BSD
 # include <termios.h>
 # if defined(__FreeBSD__) || defined(__FreeBSD_kernel__) || defined(__DragonFly__)
 #  include <libutil.h>
