@@ -18,10 +18,10 @@ jobs:
       run: sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install libglib2.0-dev libpixman-1-dev
 
     - name: Configure
-      run: ./configure --target-list=irix-linux-user
+      run: ./configure --target-list=irix-linux-user --disable-werror
 
     - name: Install dependencies
-      run: make
+      run: make -j$(nproc)
 
     - name: Install qemu irix
-      run: make install
+      run: sudo make install -j$(nproc)
