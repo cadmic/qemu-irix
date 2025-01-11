@@ -16,9 +16,6 @@ jobs:
     
     - name: Install required packages
       run: sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install libglib2.0-dev libpixman-1-dev
-    
-    - name: Clone repository with submodules
-      run: git clone --recursive https://github.com/AlexN-SM64/qemu-irix && cd qemu-irix
 
     - name: Configure
       run: ./configure --target-list=irix-linux-user --disable-werror
