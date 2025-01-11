@@ -1,4 +1,4 @@
-name: Compiling QEMU IRIXN32 on Ubuntu
+name: Compiling QEMU IRIX64 on Linux
 
 on:
   push:
@@ -18,10 +18,10 @@ jobs:
       run: sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install libglib2.0-dev libpixman-1-dev
 
     - name: Configure
-      run: ./configure --target-list=irixn32-linux-user --disable-werror
+      run: ./configure --target-list=irix64-linux-user --disable-werror
 
     - name: Build
-      run: make -j$(nproc)
+      run: make -j4
 
     - name: Install and check
-      run: sudo make install -j$(nproc)
+      run: sudo make install -j4
