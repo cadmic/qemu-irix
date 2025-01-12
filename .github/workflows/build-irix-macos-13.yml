@@ -21,7 +21,7 @@ jobs:
       run: ./configure --target-list=irix-darwin-user --disable-werror --disable-vnc --disable-sdl --disable-gtk --disable-cocoa --disable-opengl --disable-capstone --disable-hax --disable-hvf --disable-tools
 
     - name: Build
-      run: make -j4
+      run: gmake -j4
 
     - name: Install and check
-      run: sudo make install -j4
+      run: gmake install -j4
