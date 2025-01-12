@@ -11,7 +11,7 @@ configure --target-list=irix-linux-user,irixn32-linux-user,irix64-linux-user,sol
 make && make install
 ```
 
-Or, configure QEMU for irix userland emulatin for macOS
+Or, configure QEMU for irix userland emulation for macOS
 
 ```
 ./configure --target-list=irix-darwin-user \
@@ -24,8 +24,11 @@ Or, configure QEMU for irix userland emulatin for macOS
     --disable-hax \
     --disable-hvf \
     --disable-tools
-make
+make && make install
 ```
+
+Note: macOS 11 Big Sur and above no longer supports building qemu-irix during failure workflows
+(see at top of the repo page and click the red cross at the end of commit message)
 
 ### using
 
