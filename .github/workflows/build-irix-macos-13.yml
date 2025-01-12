@@ -15,7 +15,7 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Install required packages
-      run: brew update && brew upgrade && brew install glib pixman
+      run: brew update && brew upgrade && brew install make glib pixman
 
     - name: Configure
       run: ./configure --target-list=irix-darwin-user --disable-werror --disable-vnc --disable-sdl --disable-gtk --disable-cocoa --disable-opengl --disable-capstone --disable-hax --disable-hvf --disable-tools
