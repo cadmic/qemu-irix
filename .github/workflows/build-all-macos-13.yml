@@ -15,13 +15,13 @@ jobs:
     - uses: actions/checkout@v4
     
     - name: Install required packages
-      run: brew update && brew upgrade && brew install make gcc glib pixman
+      run: brew update && brew upgrade
 
     - name: Configure
-      run: ./configure --target-list=irix-darwin-user,irixn32-darwin-user,irix64-darwin-user,solaris-darwin-user --disable-werror --disable-vnc --disable-sdl --disable-gtk --disable-cocoa --disable-opengl --disable-capstone --disable-hax --disable-hvf --disable-tools
+      run: ./configure --target-list=irix-darwin-user,irixn32-darwin-user,irix64-darwin-user --disable-werror --disable-vnc --disable-sdl --disable-gtk --disable-cocoa --disable-opengl --disable-capstone --disable-hax --disable-hvf --disable-tools
 
     - name: Build
-      run: gmake -j4
+      run: make -j4
 
     - name: Install and check
-      run: gmake install -j4
+      run: make install -j4
