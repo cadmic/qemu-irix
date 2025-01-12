@@ -6,15 +6,16 @@ only under linux and macOS (though BSD support would probably be feasable).
 Configure QEMU for irix/solaris userland emulation for linux and compile (see the original
 QEMU README for further instructions):
 
-```
-configure --target-list=irix-linux-user,irixn32-linux-user,irix64-linux-user,solaris-linux-user
+```sh
+configure --target-list=irix-linux-user,irixn32-linux-user,irix64-linux-user,solaris-linux-user --disable-werror
 make && make install
 ```
 
 Or, configure QEMU for irix userland emulation for macOS
 
-```
+```sh
 ./configure --target-list=irix-darwin-user \
+    --disable-werror \
     --disable-vnc \
     --disable-sdl \
     --disable-gtk \
@@ -26,6 +27,8 @@ Or, configure QEMU for irix userland emulation for macOS
     --disable-tools
 make && make install
 ```
+
+Note: only `irix-darwin-user` and `irix64-darwin-user` are allowed for building on macOS during succeeded workflows
 
 Note: macOS 11 Big Sur and above no longer supports building qemu-irix during failure workflows
 (see at top of the repo page and click the red cross at the end of commit message)
@@ -40,7 +43,7 @@ with the binfmt install scripts.
 Now you should be able to directly execute irix/solaris binaries from the shell.
 As a rather simple test, try:
 
-```
+```sh
 <target rootfs>/bin/ls
 ```
 
