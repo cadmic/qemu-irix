@@ -267,6 +267,7 @@
 
 
 /* syssgi(sysconf, cmd, ...) */
+#define TARGET_NR_sysconf_argmax    (1)
 #define TARGET_NR_sysconf_childmax	(2)
 #define TARGET_NR_sysconf_clktick	(3)
 #define TARGET_NR_sysconf_openmax	(5)
