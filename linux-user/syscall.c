@@ -14537,6 +14537,9 @@ abi_long do_syscall(void *cpu_env, int num, abi_long arg1,
             case TARGET_NR_sysconf_mac:
                 ret = 0;
                 break;
+            case TARGET_NR_sysconf_argmax:
+                ret = get_errno(sysconf(_SC_ARG_MAX));
+                break;
             default:
                 gemu_log("qemu: Unsupported syscall: sysconf(%d)\n", (int)arg2);
                 ret = -TARGET_ENOSYS;
